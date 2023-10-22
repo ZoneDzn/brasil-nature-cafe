@@ -1,9 +1,21 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import Carousel from 'react-native-snap-carousel'; // Importe o Carousel do react-native-snap-carousel
 import { useNavigation } from '@react-navigation/native'; // hook de navegação
+
+const images = [
+    require('../../../assets/hamburgerCarrosel.png'),
+    require('../../../assets/hamburgerCarrosel.png'),
+    require('../../../assets/hamburgerCarrosel.png'),
+];
 
 const CardapioScreen = () => {
     const navigation = useNavigation(); // função de navegação 
+
+    // Função para renderizar os itens do carrossel
+    const renderCarouselItem = ({ item }) => (
+        <Image source={item} style={styles.carouselImage} />
+    );
 
     return (
         <View style={styles.container}>
@@ -33,7 +45,16 @@ const CardapioScreen = () => {
             </View>
 
             {/* Carrossel de Imagens */}
-
+            <View style={styles.carouselContainer}>
+                <Carousel
+                    data={images}
+                    renderItem={renderCarouselItem}
+                    sliderWidth={300}
+                    itemWidth={300}
+                    loop={true}
+                    autoplay={true}
+                />
+            </View>
 
             {/* Texto "Cardápio" e botão "Ver tudo" */}
             <View style={styles.cardapioHeader}>
@@ -54,8 +75,6 @@ const CardapioScreen = () => {
                     <Text style={styles.cardapioItemDescription}>Chocolate meio amargo e chantilly</Text>
                 </View>
             </View>
-
-
 
             {/* Rodapé com ícones */}
             <View style={styles.footer}>
@@ -169,11 +188,21 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center', // Centraliza os ícones horizontalmente
         alignItems: 'center', // Centraliza os ícones verticalmente
-        marginBottom: 2,
+        marginBottom: 35,
     },
     footerIcon: {
-        marginHorizontal: 50,
+        marginHorizontal: 35,
         // Estilo dos ícones do rodapé
+    },
+    carouselContainer: {
+        marginTop: 20,
+        marginBottom: 20,
+        alignItems: 'center',
+    },
+    carouselImage: {
+        width: 300,
+        height: 200,
+        borderRadius: 10,
     },
 });
 

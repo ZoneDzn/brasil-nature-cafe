@@ -156,10 +156,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center', // Centraliza os ícones horizontalmente
         alignItems: 'center', // Centraliza os ícones verticalmente
-        marginBottom: 2,
+        marginBottom: 15,
     },
     footerIcon: {
-        marginHorizontal: 50,
+        marginHorizontal: 35,
         // Estilo dos ícones do rodapé
     },
 });
