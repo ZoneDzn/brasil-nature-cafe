@@ -5,10 +5,10 @@ const TelaDeCarregamento = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
   
-    }, 2000);
+    }, 1000);
 
     return () => {
-      // Certifique-se de limpar o timer se o componente for desmontado antes do tempo limite
+      // limpa o timer
       clearTimeout(timer);
     };
   }, []);

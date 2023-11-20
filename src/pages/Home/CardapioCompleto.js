@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const CardapioCompleto = () => {
+    const navigation = useNavigation();
     const [itens, setItens] = useState([
         { id: '1', nome: 'Bolo de Cenoura com cobertura de chocolate', preco: 5.00, quantidade: 0, imagem: require('../../../assets/BoloDeCenouraChocolate.png') },
         { id: '2', nome: 'Tortelete de morango', preco: 7.00, quantidade: 0, imagem: require('../../../assets/TorteleteDeMorango.png') },
@@ -61,18 +63,26 @@ const CardapioCompleto = () => {
             {/* Rodapé */}
             <View style={styles.footer}>
                 <View style={styles.footerIcons}>
-                    <Image
+                    <TouchableOpacity onPress={() => navigation.navigate('CardapioScreen')}>
+                        <Image
                         source={require('../../../assets/home.png')} // Ícone de casa
                         style={[styles.footerIcon, { width: 30, height: 30 }]}
-                    />
-                    <Image
-                        source={require('../../../assets/list.png')} // Ícone de lista
-                        style={[styles.footerIcon, { width: 30, height: 30 }]}
-                    />
-                    <Image
-                        source={require('../../../assets/user.png')} // Ícone de usuário
-                        style={[styles.footerIcon, { width: 30, height: 30 }]}
-                    />
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('CardapioCompleto')}>
+                        <Image
+                            source={require('../../../assets/list.png')} // Ícone de lista
+                            style={[styles.footerIcon, { width: 30, height: 30 }]}
+                        />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => navigation.navigate('PerfilUsuario')}>
+                        <Image
+                            source={require('../../../assets/user.png')} // Ícone de usuário
+                            style={[styles.footerIcon, { width: 30, height: 30 }]}
+                        />
+                    </TouchableOpacity>
+
                 </View>
             </View>
         </View>

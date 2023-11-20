@@ -5,6 +5,7 @@ import TelaDeCarregamento from './src/pages/Home/TelaDeCarregamento';
 import TelaPrincipal from './src/pages/Home/TelaPrincipal';
 import CardapioScreen from './src/pages/Home/CardapioScreen';
 import CardapioCompleto from './src/pages/Home/CardapioCompleto';
+import PerfilUsuario from './src/pages/Home/PerfilUsuario';
 
 const Stack = createStackNavigator();
 
@@ -44,6 +45,11 @@ const App = () => {
               name="CardapioCompleto"
               component={CardapioCompleto}
               options={{ headerTitle: 'Cardápio Completo' }}
+            />
+            <Stack.Screen
+              name="PerfilUsuario"
+              component={PerfilUsuario}
+              options={{ headerTitle: 'Perfil do Usuário' }} // Pode personalizar o título conforme necessário
             />
           </>
         )}

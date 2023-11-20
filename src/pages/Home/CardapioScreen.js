@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native'; // hook de navegação
 
 const images = [
     require('../../../assets/hamburgerCarrosel.png'),
-    require('../../../assets/hamburgerCarrosel.png'),
-    require('../../../assets/hamburgerCarrosel.png'),
+    require('../../../assets/hamburguer-festival.jpg'),
+    require('../../../assets/Chocolate-quente-com-chantilly.jpeg'),
 ];
 
 const CardapioScreen = () => {
@@ -25,11 +25,13 @@ const CardapioScreen = () => {
                     source={require('../../../assets/menu.png')} // img menu
                     style={styles.menuIcon}
                 />
-                <Text style={styles.locationText}>Estacio - Brasília DF</Text>
-                <Image
+                <Text style={styles.locationText}>Estácio - Brasília DF</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('PerfilUsuario')}>
+                    <Image
                     source={require('../../../assets/naturoIcon.png')} // img usuario
                     style={[styles.userAvatar, { width: 40, height: 40 }]}
-                />
+                    />
+                </TouchableOpacity>
             </View>
 
             {/* Barra de Pesquisa */}
@@ -79,18 +81,26 @@ const CardapioScreen = () => {
             {/* Rodapé com ícones */}
             <View style={styles.footer}>
                 <View style={styles.footerIcons}>
-                    <Image
-                        source={require('../../../assets/home.png')} // Ícone de casa
-                        style={[styles.footerIcon, { width: 30, height: 30 }]}
-                    />
-                    <Image
-                        source={require('../../../assets/list.png')} // Ícone de lista
-                        style={[styles.footerIcon, { width: 30, height: 30 }]}
-                    />
-                    <Image
-                        source={require('../../../assets/user.png')} // Ícone de usuário
-                        style={[styles.footerIcon, { width: 30, height: 30 }]}
-                    />
+                    <TouchableOpacity onPress={() => navigation.navigate('CardapioScreen')}>
+                        <Image
+                            source={require('../../../assets/home.png')} // Ícone de casa
+                            style={[styles.footerIcon, { width: 30, height: 30 }]}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('CardapioCompleto')}>
+                        <Image
+                            source={require('../../../assets/list.png')} // Ícone de lista
+                            style={[styles.footerIcon, { width: 30, height: 30 }]}
+                        />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => navigation.navigate('PerfilUsuario')}>
+                        <Image
+                            source={require('../../../assets/user.png')} // Ícone de usuário
+                            style={[styles.footerIcon, { width: 30, height: 30 }]}
+                        />
+                    </TouchableOpacity>
+
                 </View>
             </View>
         </View>
